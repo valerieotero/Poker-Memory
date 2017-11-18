@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 public class  FlushLevel extends RankTrioLevel  {
 
 	
-	protected FlushLevel(TurnsTakenCounterLabel validTurnTime, JFrame mainFrame) {
-		super(validTurnTime, mainFrame);
+	protected FlushLevel(TurnsTakenCounterLabel validTurnTime, TurnScoreLabel turnScoreLabel,JFrame mainFrame) {
+		super(validTurnTime, turnScoreLabel,mainFrame);
 		// TODO Auto-generated constructor stub
 	}
 
