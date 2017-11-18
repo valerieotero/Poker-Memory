@@ -28,6 +28,7 @@ public class MemoryFrame extends JFrame {
 	private static final boolean DEBUG = true;
 	private JPanel contentPane;
 	private TurnsTakenCounterLabel turnCounterLabel;
+	private TurnScoreLabel turnScoreLabel;
 	private GameLevel difficulty;
 	private JPanel centerGrid;
 	private JLabel levelDescriptionLabel;
@@ -145,10 +146,14 @@ public class MemoryFrame extends JFrame {
 
 		JLabel lblNewLabel_3 = new JLabel("Score:");
 		panel_1.add(lblNewLabel_3);
+		
+		turnScoreLabel = new TurnScoreLabel();
+		turnScoreLabel.setText("");
+		panel_1.add(turnScoreLabel);
 
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		panel_1.add(lblNewLabel_2);
+//		JLabel lblNewLabel_2 = new JLabel("New label");
+//		lblNewLabel_2.setHorizontalAlignment(SwingConstants.RIGHT);
+//		panel_1.add(lblNewLabel_2);
 
 		Component horizontalStrut_3 = Box.createHorizontalStrut(20);
 		panel_1.add(horizontalStrut_3);
