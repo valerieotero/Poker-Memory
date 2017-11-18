@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.GridLayout;
 import java.awt.Component;
+import java.awt.EventQueue;
+
 import javax.swing.Box;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
@@ -33,18 +35,18 @@ public class MemoryFrame extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	//	public static void main(String[] args) {
-	//		EventQueue.invokeLater(new Runnable() {
-	//			public void run() {
-	//				try {
-	//					MemoryFrame frame = new MemoryFrame();
-	//					frame.setVisible(true);
-	//				} catch (Exception e) {
-	//					e.printStackTrace();
-	//				}
-	//			}
-	//		});
-	//	}
+		public static void main(String[] args) {
+			EventQueue.invokeLater(new Runnable() {
+				public void run() {
+					try {
+						MemoryFrame frame = new MemoryFrame();
+						frame.setVisible(true);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			});
+		}
 
 	/**
 	 * Create the frame.
@@ -125,7 +127,7 @@ public class MemoryFrame extends JFrame {
 		Component horizontalStrut_2 = Box.createHorizontalStrut(20);
 		panel_1.add(horizontalStrut_2);
 
-		JLabel lblNewLabel = new JLabel("Clicks:");
+		JLabel lblNewLabel = new JLabel("Clicks:"); // Turns declaration
 		panel_1.add(lblNewLabel);
 		
 		turnCounterLabel = new TurnsTakenCounterLabel();
@@ -141,7 +143,7 @@ public class MemoryFrame extends JFrame {
 		Component horizontalGlue_1 = Box.createHorizontalGlue();
 		panel_1.add(horizontalGlue_1);
 
-		JLabel lblNewLabel_3 = new JLabel("Points:");
+		JLabel lblNewLabel_3 = new JLabel("Score:");
 		panel_1.add(lblNewLabel_3);
 
 		JLabel lblNewLabel_2 = new JLabel("New label");
