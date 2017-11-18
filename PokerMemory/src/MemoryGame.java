@@ -26,6 +26,7 @@ public class MemoryGame implements ActionListener {
 	private JFrame mainFrame;					// top level window
 	private Container mainContentPane;			// frame that holds card field and turn counter
 	private TurnsTakenCounterLabel turnCounterLabel;
+	private TurnScoreLabel turnScoreLabel;
 	private GameLevel difficulty;
 
 	/**
@@ -132,14 +133,14 @@ public class MemoryGame implements ActionListener {
 	{
 		// reset the turn counter to zero
 		this.turnCounterLabel = new TurnsTakenCounterLabel();
-
+		this.turnScoreLabel = new TurnScoreLabel();
 		// make a new card field with cards, and add it to the window
 
 		if(difficultyMode.equalsIgnoreCase("easy")) {
-			this.difficulty = new EasyLevel(this.turnCounterLabel, this.mainFrame);
+			this.difficulty = new EasyLevel(this.turnCounterLabel, this.turnScoreLabel,this.mainFrame);
 		}
 		else if(difficultyMode.equalsIgnoreCase("medium")){
-			this.difficulty = new EqualPairLevel(this.turnCounterLabel, this.mainFrame);
+			this.difficulty = new EqualPairLevel(this.turnCounterLabel, this.turnScoreLabel,this.mainFrame);
 		}
 
 		else if(difficultyMode.equalsIgnoreCase("trio")){
@@ -151,7 +152,7 @@ public class MemoryGame implements ActionListener {
 		}
 
 		this.turnCounterLabel.reset();
-
+		this.turnScoreLabel.reset();
 		// clear out the content pane (removes turn counter label and card field)
 		this.mainContentPane.removeAll();
 

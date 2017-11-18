@@ -14,8 +14,8 @@ import javax.swing.JFrame;
 
 public class EqualPairLevel extends EasyLevel {
 
-	protected EqualPairLevel(TurnsTakenCounterLabel validTurnTime, JFrame mainFrame) {
-		super(validTurnTime, mainFrame);
+	protected EqualPairLevel(TurnsTakenCounterLabel validTurnTime,TurnScoreLabel turnScoreLabel, JFrame mainFrame) {
+		super(validTurnTime,turnScoreLabel, mainFrame);
 		super.getTurnsTakenCounter().setDifficultyModeLabel("Medium Level");
 	}
 	

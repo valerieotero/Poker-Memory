@@ -24,6 +24,7 @@ public abstract class GameLevel implements ActionListener
 	private Vector<Card> turnedCardsBuffer;					// List of cards turned up in current turn
 	private int TotalCardsPerDeck = 52;
 	private TurnsTakenCounterLabel turnsTakenCounter;	    // Turn counter is incremented at every card turned up
+	private TurnScoreLabel turnScoreLabel;
 	private Timer turnDownTimer;   							// Timer is used to make a delay
 	private int turnDownDelay = 2000;						// Milliseconds to leave cards up before turning them back down
 	private ArrayList<Card> grid;							// The list of cards in the deck in row major order
@@ -51,9 +52,10 @@ public abstract class GameLevel implements ActionListener
 	 *
 	 * @param validTurnTime reference to turn counter label in main program window
 	 */
-	protected GameLevel(TurnsTakenCounterLabel counterLabel, int cardsToGuess, JFrame mainFrame)
+	protected GameLevel(TurnsTakenCounterLabel counterLabel, TurnScoreLabel scoreLabel,int cardsToGuess, JFrame mainFrame)
 	{
 		this.turnsTakenCounter = counterLabel; counterLabel.reset();
+		this.turnScoreLabel = scoreLabel; scoreLabel.reset();
 		this.turnedCardsBuffer= new Vector<Card>(cardsToGuess);
 		this.mainFrame = (MemoryFrame) mainFrame;
 		this.turnDownTimer = new Timer(turnDownDelay, this);
@@ -72,6 +74,7 @@ public abstract class GameLevel implements ActionListener
 	public int getTotalCardsPerDeck()          { return TotalCardsPerDeck; }
 	public int getTotalUniqueCards()           { return totalUniqueCards;  }
 	public TurnsTakenCounterLabel getTurnsTakenCounter() { return turnsTakenCounter; }
+	public TurnScoreLabel getTurnScoreLabel() { return turnScoreLabel;}
 	public Timer getTurnDownTimer()            { return turnDownTimer; }
 	public ImageIcon[] getCardIcons()          { return cardIcons;     }
 	public MemoryFrame getMainFrame() { return mainFrame; }
@@ -107,6 +110,10 @@ public abstract class GameLevel implements ActionListener
 
 	public void setTurnsTakenCounter(TurnsTakenCounterLabel turnsTakenCounter) {
 		this.turnsTakenCounter = turnsTakenCounter;
+	}
+	
+	public void setTurnScoreLabel(TurnScoreLabel turnScoreLabel){
+		this.turnScoreLabel = turnScoreLabel;
 	}
 	
 	public void setTurnDownTimer(Timer turnDownTimer) {
