@@ -214,6 +214,11 @@ public class MemoryFrame extends JFrame {
 			this.getLevelDescriptionLabel().setText("Same Rank Trio Level");
 		}
 
+		else if(difficultyMode.equalsIgnoreCase("flushLevel")){
+			this.difficulty = new FlushLevel(this.turnCounterLabel, this.turnScoreLabel,this);
+			this.getLevelDescriptionLabel().setText("Flush Level");
+		}
+		
 		else {
 			throw new RuntimeException("Illegal Game Level Detected");
 		}
