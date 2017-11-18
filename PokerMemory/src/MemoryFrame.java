@@ -210,7 +210,7 @@ public class MemoryFrame extends JFrame {
 		}
 
 		else if(difficultyMode.equalsIgnoreCase("ranktrio")){
-			this.difficulty = new RankTrioLevel(this.turnCounterLabel, this);
+			this.difficulty = new RankTrioLevel(this.turnCounterLabel, this.turnScoreLabel,this);
 			this.getLevelDescriptionLabel().setText("Same Rank Trio Level");
 		}
 

@@ -144,7 +144,7 @@ public class MemoryGame implements ActionListener {
 		}
 
 		else if(difficultyMode.equalsIgnoreCase("trio")){
-			this.difficulty = new RankTrioLevel(this.turnCounterLabel, this.mainFrame);
+			this.difficulty = new RankTrioLevel(this.turnCounterLabel, this.turnScoreLabel,this.mainFrame);
 		}
 
 		else {
