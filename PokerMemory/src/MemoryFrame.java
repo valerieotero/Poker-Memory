@@ -69,6 +69,7 @@ public class MemoryFrame extends JFrame {
 					if(e.getActionCommand().equals("Easy Level")) newGame("easy");
 					else if(e.getActionCommand().equals("Equal Pair Level")) newGame("equalpair");
 					else if(e.getActionCommand().equals("Same Rank Trio Level")) newGame("ranktrio");
+					else if(e.getActionCommand().equals("Flush Level")) newGame("flushlevel");
 					else if(e.getActionCommand().equals("How To Play")) showInstructions();
 					else if(e.getActionCommand().equals("About")) showAbout();
 					else if(e.getActionCommand().equals("Exit")) System.exit(0);
@@ -89,6 +90,11 @@ public class MemoryFrame extends JFrame {
 		JMenuItem sameRankTrioMenuItem = new JMenuItem("Same Rank Trio Level");
 		sameRankTrioMenuItem.addActionListener(menuHandler);		
 		mnFile.add(sameRankTrioMenuItem);
+		
+		JMenuItem flushLevelMenuItem = new JMenuItem("Flush Level");
+		flushLevelMenuItem.addActionListener(menuHandler);		
+		mnFile.add(flushLevelMenuItem);
+		
 		
 		JMenu mnHelp = new JMenu("Help");
 		menuBar.add(mnHelp);
