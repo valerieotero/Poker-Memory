@@ -33,7 +33,7 @@ public class GameLevel2 extends GameLevel
 	public TurnScoreLabel getTurnScoreLabel() { return turnScoreLabel;}
 	
 	public void setTurnScoreLabel(TurnScoreLabel turnScoreLabel){
-				this.turnScoreLabel = turnScoreLabel.get;
+				this.turnScoreLabel = turnScoreLabel.getTurnScore;
 			}
 	
 	
