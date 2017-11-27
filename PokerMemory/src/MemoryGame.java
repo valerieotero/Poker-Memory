@@ -69,7 +69,7 @@ public class MemoryGame implements ActionListener {
 		newMenuItem("Easy Level", difficultyMenu, this);
 		newMenuItem("Equal Pair Level", difficultyMenu, this);
 		newMenuItem("Same Rank Trio Level", difficultyMenu, this);
-		newMenuItem("Flush Level", difficultyMenu, this);
+		//newMenuItem("Flush Level", difficultyMenu, this);
 		
 		// Help menu
 		JMenu helpMenu = new JMenu("Help");
@@ -149,9 +149,9 @@ public class MemoryGame implements ActionListener {
 			this.difficulty = new RankTrioLevel(this.turnCounterLabel, this.turnScoreLabel,this.mainFrame);
 		}
 		
-		else if(difficultyMode.equalsIgnoreCase("flush")){
-			this.difficulty = new FlushLevel(this.turnCounterLabel, this.turnScoreLabel,this.mainFrame);
-		}
+		//else if(difficultyMode.equalsIgnoreCase("flush")){
+			//this.difficulty = new FlushLevel(this.turnCounterLabel, this.turnScoreLabel,this.mainFrame);
+		//}
 
 		else {
 			throw new RuntimeException("Illegal Game Level Detected");
