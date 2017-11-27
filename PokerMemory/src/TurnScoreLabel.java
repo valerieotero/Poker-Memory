@@ -7,7 +7,7 @@ public class TurnScoreLabel extends JLabel
 	private static final long serialVersionUID = 1L;
 	
 	// data fields
-	private int scorePerTurn = 0;
+	private int turnScoreLabel = 0;
 	//private  String DESCRIPTION;
 	
 	public TurnScoreLabel()
@@ -22,8 +22,13 @@ public class TurnScoreLabel extends JLabel
 	}
 	
 	public int getScoreOfTurns(){
-		return this.scorePerTurn;
+		return this.turnScoreLabel;
 		}
+	
+	public void setTurnScoreLabel(int scoreLabel)
+	{
+		turnScoreLabel = scoreLabel;
+	}
 	
 	/**
 	 * Update the text label with the current counter value
@@ -42,7 +47,7 @@ public class TurnScoreLabel extends JLabel
 	*/
 	public void increment()
 	{
-		this.scorePerTurn++;
+		this.turnScoreLabel++;
 		update();
 	}
 	
@@ -51,7 +56,7 @@ public class TurnScoreLabel extends JLabel
 	*/
 	public void reset()
 	{
-		this.scorePerTurn = 0;
+		this.turnScoreLabel = 0;
 		update();
 	}
 }
