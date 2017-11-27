@@ -14,10 +14,9 @@ import javax.swing.JFrame;
 
 public class EasyLevel extends GameLevel {
 
-	protected EasyLevel(TurnsTakenCounterLabel validTurnTime, TurnScoreLabel turnScoreLabel, JFrame mainFrame) {
-		super(validTurnTime,turnScoreLabel, 2, mainFrame);
+	protected EasyLevel(TurnsTakenCounterLabel validTurnTime, JFrame mainFrame) {
+		super(validTurnTime, 2, mainFrame);
 		this.getTurnsTakenCounter().setDifficultyModeLabel("Easy Level");
-		this.setTurnScoreLabel(turnScoreLabel);
 		this.setCardsPerRow(4);
 		this.setRowsPerGrid(4);
 		this.setCardsToTurnUp(2);
