@@ -201,16 +201,16 @@ public class MemoryFrame extends JFrame {
 		// make a new card field with cards, and add it to the window
 
 		if(difficultyMode.equalsIgnoreCase("easy")) {
-			this.difficulty = new EasyLevel(this.turnCounterLabel, this.turnScoreLabel,this);
+			this.difficulty = new EasyLevel(this.turnCounterLabel, this);
 			this.getLevelDescriptionLabel().setText("Easy Level");
 		}
 		else if(difficultyMode.equalsIgnoreCase("equalpair")){
-			this.difficulty = new EqualPairLevel(this.turnCounterLabel, this.turnScoreLabel,this);
+			this.difficulty = new EqualPairLevel(this.turnCounterLabel, this);
 			this.getLevelDescriptionLabel().setText("Equal Pair Level");
 		}
 
 		else if(difficultyMode.equalsIgnoreCase("ranktrio")){
-			this.difficulty = new RankTrioLevel(this.turnCounterLabel, this.turnScoreLabel,this);
+			this.difficulty = new RankTrioLevel(this.turnCounterLabel, this);
 			this.getLevelDescriptionLabel().setText("Same Rank Trio Level");
 		}
 

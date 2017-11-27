@@ -139,14 +139,14 @@ public class MemoryGame implements ActionListener {
 		// make a new card field with cards, and add it to the window
 
 		if(difficultyMode.equalsIgnoreCase("easy")) {
-			this.difficulty = new EasyLevel(this.turnCounterLabel, this.turnScoreLabel,this.mainFrame);
+			this.difficulty = new EasyLevel(this.turnCounterLabel, this.mainFrame);
 		}
 		else if(difficultyMode.equalsIgnoreCase("medium")){
-			this.difficulty = new EqualPairLevel(this.turnCounterLabel, this.turnScoreLabel,this.mainFrame);
+			this.difficulty = new EqualPairLevel(this.turnCounterLabel, this.mainFrame);
 		}
 
 		else if(difficultyMode.equalsIgnoreCase("trio")){
-			this.difficulty = new RankTrioLevel(this.turnCounterLabel, this.turnScoreLabel,this.mainFrame);
+			this.difficulty = new RankTrioLevel(this.turnCounterLabel, this.mainFrame);
 		}
 		
 		//else if(difficultyMode.equalsIgnoreCase("flush")){
