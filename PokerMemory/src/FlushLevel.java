@@ -1,10 +1,27 @@
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
-public class FlushLevel  {
+public class FlushLevel extends RankTrioLevel {
 
-	//public FlushLevel(TurnsTakenCounterLabel turnCounterLabel, MenuItems menuItems) {
-		// TODO Auto-generated constructor stub
+	protected FlushLevel(TurnsTakenCounterLabel validTurnTime, JFrame mainFrame) {
+		super(validTurnTime, mainFrame);
+		this.getTurnsTakenCounter().setDifficultyModeLabel("flush");
+		this.setCardsPerRow(1);
+		this.setRowsPerGrid(1);
+		this.setCardsToTurnUp(5);
+		this.setTotalUniqueCards(this.getRowsPerGrid() * this.getCardsPerRow());
 	}
+	
+	@Override
+	protected void makeDeck() {
+	
+	//back card
+	ImageIcon backIcon = this.getCardIcons()[this.getTotalCardsPerDeck()];
+	
+	
 
 	
+}
+}	
 
 

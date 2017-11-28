@@ -48,7 +48,7 @@ public class MenuItems extends MemoryFrame{
         // make a new card field with cards, and add it to the window
 
         if(difficultyMode.equalsIgnoreCase("flush")) {
-            this.setGameLevel(new FlushLevel());
+            this.setGameLevel(new FlushLevel(this.getTurnCounterLabel(), this));
             this.getLevelDescriptionLabel().setText("Flush Level");
             this.getTurnCounterLabel().reset();
        
@@ -56,7 +56,7 @@ public class MenuItems extends MemoryFrame{
             BorderLayout bl  = (BorderLayout) this.getContentPane().getLayout();
             this.getContentPane().remove(bl.getLayoutComponent(BorderLayout.CENTER));
             this.getContentPane().add(showCardDeck(), BorderLayout.CENTER);
-
+           
             // show the window (in case this is the first game)
             this.setVisible(true);
         }
