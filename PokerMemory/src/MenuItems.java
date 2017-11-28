@@ -48,7 +48,7 @@ public class MenuItems extends MemoryFrame{
         // make a new card field with cards, and add it to the window
 
         if(difficultyMode.equalsIgnoreCase("flush")) {
-            this.setGameLevel(new FlushLevel(this.getTurnCounterLabel(), this));
+            this.setGameLevel(new FlushLevel());
             this.getLevelDescriptionLabel().setText("Flush Level");
             this.getTurnCounterLabel().reset();
        
