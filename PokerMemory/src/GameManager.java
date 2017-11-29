@@ -25,7 +25,7 @@ public class GameManager {
 
 		int playMore = 2;
 		while (playMore != 1) {
-			MenuItems instance = new MenuItems();
+			MemoryFrame instance = new MenuItems();
 			instance.newGame("easy");
 
 			while(!instance.gameOver()) {
