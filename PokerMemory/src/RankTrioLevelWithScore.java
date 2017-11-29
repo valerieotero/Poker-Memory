@@ -9,7 +9,7 @@ public class RankTrioLevelWithScore extends RankTrioLevel
 	protected RankTrioLevelWithScore(TurnsTakenCounterLabel validTurnTime, JFrame mainFrame) 
 	{
 		super(validTurnTime, mainFrame);
-
+		scoreLabel = 0;
 	}
 	
 	public void reset() 
