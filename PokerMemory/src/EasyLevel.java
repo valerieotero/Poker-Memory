@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class EasyLevel extends GameLevel {
-
+	
 	protected EasyLevel(TurnsTakenCounterLabel validTurnTime, JFrame mainFrame) {
 		super(validTurnTime, 2, mainFrame);
 		this.getTurnsTakenCounter().setDifficultyModeLabel("Easy Level");
