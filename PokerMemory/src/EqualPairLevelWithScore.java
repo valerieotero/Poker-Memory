@@ -49,6 +49,7 @@ public class EqualPairLevelWithScore extends EqualPairLevel
 				{
 					this.getTurnedCardsBuffer().clear();
 					this.increment();
+					this.getMainFrame().setScore(scoreLabel);
 				}
 				// the cards do not match, so start the timer to turn them down
 				else 
