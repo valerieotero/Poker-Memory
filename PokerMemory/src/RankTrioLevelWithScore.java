@@ -51,12 +51,14 @@ public class RankTrioLevelWithScore extends RankTrioLevel
 					// Three cards match, so remove them from the list (they will remain face up)
 					this.getTurnedCardsBuffer().clear();
 					this.increment();
+					this.getMainFrame().setScore(this.getScoreLabel());
 				}
 				else
 				{
 					// The cards do not match, so start the timer to turn them down
 					this.getTurnDownTimer().start();
 					this.decrement();
+					this.getMainFrame().setScore(this.getScoreLabel());
 				}
 			}
 			return true;

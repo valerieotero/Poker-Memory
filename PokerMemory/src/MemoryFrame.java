@@ -208,7 +208,7 @@ public class MemoryFrame extends JFrame {
 	{
 		// Reset the turn counter label
 		this.turnCounterLabel.reset();
-
+		
 		// make a new card field with cards, and add it to the window
 
 		if(difficultyMode.equalsIgnoreCase("easy")) {
