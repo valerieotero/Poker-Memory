@@ -44,6 +44,7 @@ public abstract class GameLevel implements ActionListener
 	protected String suits[] = { "c", "d", "h", "s" };
 	protected String ranks[] = { "2", "3", "4", "5", "6", "7", "8", "9", "t", "j", "q", "k", "a" };
 
+
 	private ImageIcon cardIcons[];
 	
 	/**

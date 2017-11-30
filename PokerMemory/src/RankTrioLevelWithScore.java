@@ -5,6 +5,7 @@ public class RankTrioLevelWithScore extends RankTrioLevel
 	private long scoreLabel = 0;
 	private final int LEVEL_INCREMENT = 100;
 	private final int PENALTY = 5;
+	private final int TRIO = 3;
 	
 	protected RankTrioLevelWithScore(TurnsTakenCounterLabel validTurnTime, JFrame mainFrame) 
 	{
@@ -20,6 +21,11 @@ public class RankTrioLevelWithScore extends RankTrioLevel
 	public void increment() 
 	{
 		scoreLabel += LEVEL_INCREMENT;
+	}
+	
+	public void rankIncrement(long plusRank) 
+	{
+		scoreLabel += plusRank * TRIO;
 	}
 	
 	public void decrement() 
@@ -51,6 +57,7 @@ public class RankTrioLevelWithScore extends RankTrioLevel
 					// Three cards match, so remove them from the list (they will remain face up)
 					this.getTurnedCardsBuffer().clear();
 					this.increment();
+					this.rankIncrement(card.getNum());
 					this.getMainFrame().setScore(this.getScoreLabel());
 				}
 				else
