@@ -27,6 +27,10 @@ public class EqualPairLevelWithScore extends EqualPairLevel
 		scoreLabel -= PENALTY;
 	}
 	
+	public long getScoreLabel() 
+	{
+		return scoreLabel;
+	}
 	@Override
 	protected boolean turnUp(Card card) {
 		// the card may be turned
