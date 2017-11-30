@@ -63,7 +63,7 @@ public class MenuItems extends MemoryFrame{
             
         else if(difficultyMode.equalsIgnoreCase("equalpair")) {
             this.setGameLevel(new EqualPairLevelWithScore(this.getTurnCounterLabel(), this));
-            this.getLevelDescriptionLabel().setText("Flush Level");
+            this.getLevelDescriptionLabel().setText("Equal Pair Level");
             this.getTurnCounterLabel().reset();
             this.setScore(0);
             
@@ -77,7 +77,7 @@ public class MenuItems extends MemoryFrame{
             }
         else if(difficultyMode.equalsIgnoreCase("ranktrio")) {
             this.setGameLevel(new RankTrioLevelWithScore(this.getTurnCounterLabel(), this));
-            this.getLevelDescriptionLabel().setText("Flush Level");
+            this.getLevelDescriptionLabel().setText("Rank Trio Level");
             this.getTurnCounterLabel().reset();
             this.setScore(0);
             
