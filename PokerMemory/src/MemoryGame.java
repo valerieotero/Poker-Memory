@@ -149,9 +149,9 @@ public class MemoryGame implements ActionListener {
 			this.difficulty = new RankTrioLevel(this.turnCounterLabel, this.mainFrame);
 		}
 		
-		//else if(difficultyMode.equalsIgnoreCase("flush")){
-			//this.difficulty = new FlushLevel(this.turnCounterLabel, this.turnScoreLabel,this.mainFrame);
-		//}
+		else if(difficultyMode.equalsIgnoreCase("flush")){
+			this.difficulty = new FlushLevel(this.turnCounterLabel, this.mainFrame);
+		}
 
 		else {
 			throw new RuntimeException("Illegal Game Level Detected");
