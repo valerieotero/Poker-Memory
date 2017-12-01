@@ -14,10 +14,7 @@ public class StraightLevel extends FlushLevel
 //	
 	}
 	
-	
-	
-	
-	protected boolean turnUp(Card card) {
+		protected boolean turnUp(Card card) {
 		// the card may be turned
 		if(this.getTurnedCardsBuffer().size() < getCardsToTurnUp()) 
 		{
