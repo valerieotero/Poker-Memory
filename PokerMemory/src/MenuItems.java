@@ -38,19 +38,6 @@ public class MenuItems extends MemoryFrame {
         helpMenu.removeAll();
         menuBar.add(helpMenu);
 
-//        ActionListener menuHandler = new ActionListener() {
-//            public void actionPerformed(ActionEvent e) {
-//                try {
-//                    if(e.getActionCommand().equals("Flush Level")) newGame("FlushLevel");
-//                    else if(e.getActionCommand().equals("Straight Level")) newGame("StraightLevel");
-//                    else if(e.getActionCommand().equals("Combo Level")) newGame("ComboLevel");
-//                    else if(e.getActionCommand().equals("How To Play")) showInstructions();
-//                } catch (IOException e2) {
-//                    e2.printStackTrace(); throw new RuntimeException("IO ERROR");
-//                }
-//            }
-//        };
-       
         ActionListener menuHandler = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -59,9 +46,9 @@ public class MenuItems extends MemoryFrame {
                     if(e.getActionCommand().equals("Easy Level")) newGame("easy");
                     else if(e.getActionCommand().equals("Equal Pair Level")) newGame("equalpair");
                     else if(e.getActionCommand().equals("Same Rank Trio Level")) newGame("ranktrio");
-                    else if(e.getActionCommand().equals("Straight Level")) newGame("StraightLevel");
-                    else if(e.getActionCommand().equals("Combo Level")) newGame("ComboLevel");
                     else if(e.getActionCommand().equals("Flush Level")) newGame("flushlevel");
+                    else if(e.getActionCommand().equals("Straight Level")) newGame("StraightLevel");                    
+                    else if(e.getActionCommand().equals("Combo Level")) newGame("ComboLevel");                    
                     else if(e.getActionCommand().equals("How To Play")) showInstructions();
                     else if(e.getActionCommand().equals("About")) showAbout();
                     else if(e.getActionCommand().equals("Exit")) System.exit(0);
@@ -81,9 +68,7 @@ public class MenuItems extends MemoryFrame {
         JMenuItem comboLevelMenuItem = new JMenuItem("Combo Level");
         comboLevelMenuItem.addActionListener(menuHandler);
         memoryMenu.add(comboLevelMenuItem);
-       
-       
-       
+            
         JMenuItem mntmHowToPlay = new JMenuItem("How To Play");
         mntmHowToPlay.addActionListener(menuHandler);
         helpMenu.add(mntmHowToPlay);
@@ -132,32 +117,18 @@ public class MenuItems extends MemoryFrame {
 
           
         }
-//        else if (difficultyMode.equalsIgnoreCase("straightLevel")) {
-//              this.setGameLevel(new StraightLevel(this.getTurnCounterLabel(), this));
-//            this.getLevelDescriptionLabel().setText("Straight Level");
-//            this.getTurnCounterLabel().reset();
-//
-//            // clear out the content pane (removes turn counter label and card field)
-//            BorderLayout bl  = (BorderLayout) this.getContentPane().getLayout();
-//            this.getContentPane().remove(bl.getLayoutComponent(BorderLayout.CENTER));
-//            this.getContentPane().add(showCardDeck(), BorderLayout.CENTER);
-//
-//            // show the window (in case this is the first game)
-//            this.setVisible(true);
-//        }
-//        else if (difficultyMode.equalsIgnoreCase("comboLevel")) {
-//              this.setGameLevel(new ComboLevel(this.getTurnCounterLabel(), this));
-//            this.getLevelDescriptionLabel().setText("Combo Level");
-//            this.getTurnCounterLabel().reset();
-//
-//            // clear out the content pane (removes turn counter label and card field)
-//            BorderLayout bl  = (BorderLayout) this.getContentPane().getLayout();
-//            this.getContentPane().remove(bl.getLayoutComponent(BorderLayout.CENTER));
-//            this.getContentPane().add(showCardDeck(), BorderLayout.CENTER);
-//
-//            // show the window (in case this is the first game)
-//            this.setVisible(true);
-//        }
+        else if (difficultyMode.equalsIgnoreCase("straightLevel")) {
+              this.setGameLevel(new StraightLevel(this.getTurnCounterLabel(), this));
+            this.getLevelDescriptionLabel().setText("Straight Level");
+            this.getTurnCounterLabel().reset();
+        }
+
+        else if (difficultyMode.equalsIgnoreCase("comboLevel")) {
+              this.setGameLevel(new ComboLevel(this.getTurnCounterLabel(), this));
+            this.getLevelDescriptionLabel().setText("Combo Level");
+            this.getTurnCounterLabel().reset();
+        }
+        
         else {
             super.newGame(difficultyMode);
         }
