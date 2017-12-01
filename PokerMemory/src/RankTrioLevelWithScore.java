@@ -18,13 +18,11 @@ public class RankTrioLevelWithScore extends RankTrioLevel
 		scoreLabel = 0;
 	}
 	
-	public void increment() 
-	{
-		scoreLabel += LEVEL_INCREMENT;
-	}
 	
 	public void rankIncrement(Card theCard) 
 	{
+		scoreLabel += LEVEL_INCREMENT;
+		
 		if(theCard.getRank().equals("t")) 
 		{
 			scoreLabel += TRIO * 10;
@@ -79,7 +77,6 @@ public class RankTrioLevelWithScore extends RankTrioLevel
 				if((card.getRank().equals(otherCard1.getRank())) && (card.getRank().equals(otherCard2.getRank()))) {
 					// Three cards match, so remove them from the list (they will remain face up)
 					this.getTurnedCardsBuffer().clear();
-					this.increment();
 					this.rankIncrement(card);
 					this.getMainFrame().setScore(this.getScoreLabel());
 				}
