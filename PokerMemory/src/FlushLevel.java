@@ -1,28 +1,16 @@
-/**
- * Stores currently turned cards, allows only three cards to be uncovered on each turn
- * Also handles turning cards back down after a delay if cards have different ranks
- *
- * @author Michael Leonhard (Original Author)
- * @author Modified by Bienvenido Vélez (UPRM)
- * @version Sept 2017
- */
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-
-public class FlushLevel extends EqualPairLevel {
-
-	// TRIO LEVEL: The goal is to find, on each turn, three cards with the same rank
-
+public class FlushLevel extends RankTrioLevel{
+	private long score = 0;
 	protected FlushLevel(TurnsTakenCounterLabel validTurnTime, JFrame mainFrame) {
 		super(validTurnTime, mainFrame);
 		this.getTurnsTakenCounter().setDifficultyModeLabel("Flush Level");
 		this.setCardsToTurnUp(5);
 		this.setCardsPerRow(10);
 		this.setRowsPerGrid(5);
-	}
 
+	}
 	@Override
 	protected void makeDeck() {
 		// In Trio level the grid consists of distinct cards, no repetitions
@@ -50,8 +38,38 @@ public class FlushLevel extends EqualPairLevel {
 			this.getGrid().add( new Card(this, this.getCardIcons()[num], backIcon, num, rank, suit));
 		}
 	}
-
-	@Override
+	public long getRankValue(Card theCard)
+	{
+		if(theCard.getRank().equals("a"))
+		{
+			return 20;
+		}
+		else if (theCard.getRank().equals("k"))
+		{
+			return 13;
+		}
+		else if (theCard.getRank().equals("q"))
+		{
+			return 12;
+		}
+		else if (theCard.getRank().equals("t"))
+		{
+			return 10;
+		}
+		else if (theCard.getRank().equals("j"))
+		{
+			return 11;
+		}
+		else
+		{
+			return Long.parseLong(theCard.getRank());
+		}
+	}
+	public void scoreIncrement(Card card1,Card card2, Card card3, Card card4, Card card5) 
+	{
+		score = score + 700 + this.getRankValue(card1) + this.getRankValue(card2) +
+				this.getRankValue(card3) + this.getRankValue(card4) + this.getRankValue(card5);
+	}
 	protected boolean turnUp(Card card) {
 		// the card may be turned
 		if(this.getTurnedCardsBuffer().size() < getCardsToTurnUp()) 
@@ -68,26 +86,33 @@ public class FlushLevel extends EqualPairLevel {
 				Card otherCard2 = (Card) this.getTurnedCardsBuffer().get(1);
 				Card otherCard3 = (Card) this.getTurnedCardsBuffer().get(2);
 				Card otherCard4 = (Card) this.getTurnedCardsBuffer().get(3);
-				Card otherCard5 = (Card) this.getTurnedCardsBuffer().get(4);
+
 				
-				if((card.getSuit().equals(otherCard1.getSuit())) && (card.getSuit().equals(otherCard2.getSuit()) && (card.getSuit().equals(otherCard3.getSuit())) && (card.getSuit().equals(otherCard4.getSuit()))&& (card.getSuit().equals(otherCard5.getSuit())))) {
-					// Three cards match, so remove them from the list (they will remain face up)
+				if((card.getRank().equals(otherCard1.getRank())) && 
+						(card.getRank().equals(otherCard2.getRank())) &&
+						(card.getRank().equals(otherCard3.getRank())) &&
+						(card.getRank().equals(otherCard4.getRank())))
+				{
+				// Three cards match, so remove them from the list (they will remain face up)
+					this.scoreIncrement( card, otherCard1, otherCard2, otherCard3, otherCard4);
+					super.getMainFrame().setScore(this.score);
 					this.getTurnedCardsBuffer().clear();
 				}
 				else
 				{
+					this.score -= 5;
 					// The cards do not match, so start the timer to turn them down
+					this.getMainFrame().setScore(this.score);
 					this.getTurnDownTimer().start();
+
+					
 				}
 			}
 			return true;
 		}
-		return false;
+return false;
 	}
 }
-
-
-
 
 
 

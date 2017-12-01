@@ -17,7 +17,7 @@ public class RankTrioLevel extends EqualPairLevel {
 	protected RankTrioLevel(TurnsTakenCounterLabel validTurnTime, JFrame mainFrame) {
 		super(validTurnTime, mainFrame);
 		this.getTurnsTakenCounter().setDifficultyModeLabel("Trio Level");
-		this.setCardsToTurnUp(3);
+		this.setCardsToTurnUp(5);
 		this.setCardsPerRow(10);
 		this.setRowsPerGrid(5);
 	}
