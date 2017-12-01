@@ -2,7 +2,7 @@
  * Represents a card, keeps Icons for front and back, handles mouse clicks
  *
  * @author Michael Leonhard (Original Author)
- * @author Modified by Bienvenido VÃ©lez (UPRM)
+ * @author Modified by Bienvenido Vélez (UPRM)
  * @version Sept 2017
  */
 
@@ -21,7 +21,6 @@ public class Card extends JLabel implements MouseListener
 	private String suit;
 	private String rank;
 	private int iconWidthHalf, iconHeightHalf; 	// half the dimensions of the back face icon
-	private boolean mousePressedOnMe = false;
 
 	/**
 	 * Constructor
@@ -63,13 +62,22 @@ public class Card extends JLabel implements MouseListener
 	 */
 	public void turnUp()
 	{
-		MemoryGame.dprintln("Card["+num+"].turnUp()");
+		MemoryFrame.dprintln("Card["+num+"].turnUp()");
 		// the card is already face up
 		if(this.faceUp) return;
 		// ask manager to allow turn
 		this.faceUp = this.turnedManager.turnUp(this);
 		// allowed to turn, so change the picture
 		if(this.faceUp) this.setIcon(this.faceIcon);
+	}
+	/**
+	 * This method forces the card to flip face up.
+	 * Can be used to guarantee that a selected card flips face up before a modal dialog pops up
+	 */
+	
+	public void faceUp() {
+		this.faceUp = true;
+		this.setIcon(this.faceIcon);
 	}
 
 	/**
@@ -78,7 +86,7 @@ public class Card extends JLabel implements MouseListener
 	 */
 	public void turnDown()
 	{
-		MemoryGame.dprintln("Card["+num+"].turnDown()");
+		MemoryFrame.dprintln("Card["+num+"].turnDown()");
 		if(!this.faceUp) return;
 		this.setIcon(this.backIcon);
 		this.faceUp = false;
@@ -117,7 +125,7 @@ public class Card extends JLabel implements MouseListener
 	public void mouseClicked(MouseEvent e)
 	{
 		// over icon, so try to turn up the card
-		System.out.println("Mouse clicked");
+		MemoryFrame.dprintln("Mouse clicked at x = " + e.getX() + " y = " + e.getY());
 		if(overIcon(e.getX(), e.getY())) this.turnUp();
 	}
 
@@ -126,28 +134,14 @@ public class Card extends JLabel implements MouseListener
 	 *
 	 * @param e object holding information about the button press
 	 */
-	public void mousePressed(MouseEvent e)
-	{
-		// over icon, so remember this is a mouse press
-		if(overIcon(e.getX(), e.getY())) this.mousePressedOnMe = true;
-	}
+	public void mousePressed(MouseEvent e) {}
 
 	/**
 	 * Invoked when a mouse button has been released on a component.
 	 *
 	 * @param e object holding information about the button release
 	 */
-	public void mouseReleased(MouseEvent e)
-	{
-		// previous press was over icon
-		if(this.mousePressedOnMe)
-		{
-			// mouse is no longer pressed
-			this.mousePressedOnMe = false;
-			// it was a click, so treat it as one
-			this.mouseClicked(e);
-		}
-	}
+	public void mouseReleased(MouseEvent e) {}
 
 	/**
 	 * Invoked when the mouse enters a component.
@@ -161,9 +155,5 @@ public class Card extends JLabel implements MouseListener
 	 *
 	 * @param e object holding information about the mouse pointer
 	 */
-	public void mouseExited(MouseEvent e)
-	{
-		// forget any previous mouse press
-		this.mousePressedOnMe = false;
-	}
+	public void mouseExited(MouseEvent e) {}
 }

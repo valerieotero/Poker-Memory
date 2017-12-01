@@ -117,6 +117,16 @@ public class FlushLevel extends RankTrioLevel{
 return false;
 	}
 	
+	@Override
+	protected boolean  isGameOver(){
+
+		for (int i =0; i< this.getGrid().size();i++)
+			if(!this.getGrid().get(i).isFaceUp()) return false;
+
+		if(this.getGrid().size() == 5) {}
+		return true;
+	}
+	
 }
 
 
