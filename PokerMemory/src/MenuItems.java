@@ -96,32 +96,20 @@ public class MenuItems extends MemoryFrame {
 
            
         }
-//        else if (difficultyMode.equalsIgnoreCase("straightLevel")) {
-//              this.setGameLevel(new StraightLevel(this.getTurnCounterLabel(), this));
-//            this.getLevelDescriptionLabel().setText("Straight Level");
-//            this.getTurnCounterLabel().reset();
-//
-//            // clear out the content pane (removes turn counter label and card field)
-//            BorderLayout bl  = (BorderLayout) this.getContentPane().getLayout();
-//            this.getContentPane().remove(bl.getLayoutComponent(BorderLayout.CENTER));
-//            this.getContentPane().add(showCardDeck(), BorderLayout.CENTER);
-//
-//            // show the window (in case this is the first game)
-//            this.setVisible(true);
-//        }
+        else if (difficultyMode.equalsIgnoreCase("straightLevel")) {
+              this.setGameLevel(new StraightLevel(this.getTurnCounterLabel(), this));
+            this.getLevelDescriptionLabel().setText("Straight Level");
+            this.getTurnCounterLabel().reset();
+
+           
+        }
 //        else if (difficultyMode.equalsIgnoreCase("comboLevel")) {
 //              this.setGameLevel(new ComboLevel(this.getTurnCounterLabel(), this));
 //            this.getLevelDescriptionLabel().setText("Combo Level");
 //            this.getTurnCounterLabel().reset();
 //
-//            // clear out the content pane (removes turn counter label and card field)
-//            BorderLayout bl  = (BorderLayout) this.getContentPane().getLayout();
-//            this.getContentPane().remove(bl.getLayoutComponent(BorderLayout.CENTER));
-//            this.getContentPane().add(showCardDeck(), BorderLayout.CENTER);
-//
-//            // show the window (in case this is the first game)
-//            this.setVisible(true);
-//        }
+//           }
+        
         else {
             super.newGame(difficultyMode);
         }
