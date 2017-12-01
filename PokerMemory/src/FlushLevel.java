@@ -2,14 +2,18 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class FlushLevel extends RankTrioLevel{
-	private long score = 0;
+	private long scoreLabel;
 	protected FlushLevel(TurnsTakenCounterLabel validTurnTime, JFrame mainFrame) {
 		super(validTurnTime, mainFrame);
 		this.getTurnsTakenCounter().setDifficultyModeLabel("Flush Level");
 		this.setCardsToTurnUp(5);
 		this.setCardsPerRow(10);
 		this.setRowsPerGrid(5);
-
+		scoreLabel = 0;
+	}
+	public long getScoreLabel() 
+	{
+		return scoreLabel;
 	}
 	@Override
 	protected void makeDeck() {
@@ -67,7 +71,7 @@ public class FlushLevel extends RankTrioLevel{
 	}
 	public void scoreIncrement(Card card1,Card card2, Card card3, Card card4, Card card5) 
 	{
-		score = score + 700 + this.getRankValue(card1) + this.getRankValue(card2) +
+		scoreLabel = scoreLabel + 700 + this.getRankValue(card1) + this.getRankValue(card2) +
 				this.getRankValue(card3) + this.getRankValue(card4) + this.getRankValue(card5);
 	}
 	protected boolean turnUp(Card card) {
@@ -88,21 +92,21 @@ public class FlushLevel extends RankTrioLevel{
 				Card otherCard4 = (Card) this.getTurnedCardsBuffer().get(3);
 
 				
-				if((card.getRank().equals(otherCard1.getRank())) && 
-						(card.getRank().equals(otherCard2.getRank())) &&
-						(card.getRank().equals(otherCard3.getRank())) &&
-						(card.getRank().equals(otherCard4.getRank())))
+				if((card.getSuit().equals(otherCard1.getSuit())) && 
+						(card.getSuit().equals(otherCard2.getSuit())) &&
+						(card.getSuit().equals(otherCard3.getSuit())) &&
+						(card.getSuit().equals(otherCard4.getSuit())))
 				{
 				// Three cards match, so remove them from the list (they will remain face up)
 					this.scoreIncrement( card, otherCard1, otherCard2, otherCard3, otherCard4);
-					super.getMainFrame().setScore(this.score);
+					this.getMainFrame().setScore(this.getScoreLabel());
 					this.getTurnedCardsBuffer().clear();
 				}
 				else
 				{
-					this.score -= 5;
+					this.scoreLabel -= 5;
 					// The cards do not match, so start the timer to turn them down
-					this.getMainFrame().setScore(this.score);
+					this.getMainFrame().setScore(this.scoreLabel);
 					this.getTurnDownTimer().start();
 
 					
@@ -112,6 +116,7 @@ public class FlushLevel extends RankTrioLevel{
 		}
 return false;
 	}
+	
 }
 
 
