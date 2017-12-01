@@ -20,7 +20,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class MemoryGame implements ActionListener {
+public class MemoryGame implements ActionListener  {
 
 	public static boolean DEBUG = true;
 	private JFrame mainFrame;					// top level window
@@ -184,36 +184,49 @@ public class MemoryGame implements ActionListener {
 	private void showInstructions()
 	{
 		dprintln("MemoryGame.showInstructions()");
-		final String HOWTOPLAYTEXT = 
-				"How To Play\r\n" +
-						"\r\n" +
-						"EQUAL PAIR Level\r\n"+
-						"The game consists of 8 pairs of cards.  At the start of the game,\r\n"+
-						"every card is face down.  The object is to find all the pairs and\r\n"+
-						"turn them face up.\r\n"+
-						"\r\n"+
-						"Click on two cards to turn them face up. If the cards are the \r\n"+
-						"same, then you have discovered a pair.  The pair will remain\r\n"+
-						"turned up.  If the cards are different, they will flip back\r\n"+
-						"over automatically after a short delay.  Continue flipping\r\n"+
-						"cards until you have discovered all of the pairs.  The game\r\n"+
-						"is won when all cards are face up.\r\n"+
-						"\r\n"+
-						"SAME RANK TRIO Level\r\n"+
-						"The game consists of a grid of distinct cards.  At the start of the game,\r\n"+
-						"every card is face down.  The object is to find all the trios \r\n"+
-						"of cards with the same rank and turn them face up.\r\n"+
-						"\r\n"+
-						"Click on three cards to turn them face up. If the cards have the \r\n"+
-						"same rank, then you have discovered a trio.  The trio will remain\r\n"+
-						"turned up.  If the cards are different, they will flip back\r\n"+
-						"over automatically after a short delay.  Continue flipping\r\n"+
-						"cards until you have discovered all of the pairs.  The game\r\n"+
-						"is won when all cards are face up.\r\n"+
-						"\r\n"+
-						"Each time you flip two cards up, the turn counter will\r\n"+
-						"increase.  Try to win the game in the fewest number of turns!";
-
+		final String HOWTOPLAYTEXT = "How To Play\r\n"
+				+ "\r\n"
+				
+				+ "EQUAL PAIR Level\r\n"
+				+ "The game consists of 8 pairs of cards.  At the start of the game,\r\n"
+				+ "every card is face down.  The object is to find all the pairs and\r\n"
+				+ "turn them face up.\r\n"
+				+ "\r\n"
+				+ "Click on two cards to turn them face up. If the cards are the \r\n"
+				+ "same, then you have discovered a pair.  The pair will remain\r\n"
+				+ "turned up.  If the cards are different, they will flip back\r\n"
+				+ "over automatically after a short delay.  Continue flipping\r\n"
+				+ "cards until you have discovered all of the pairs.  The game\r\n"
+				+ "is won when all cards are face up.\r\n"
+				+ "\r\n"
+				
+				+ "SAME RANK TRIO Level\r\n"
+				+ "The game consists of a grid of distinct cards.  At the start of the game,\r\n"
+				+ "every card is face down.  The object is to find all the trios \r\n"
+				+ "of cards with the same rank and turn them face up.\r\n"
+				+ "\r\n"
+				+ "Click on three cards to turn them face up. If the cards have the \r\n"
+				+ "same rank, then you have discovered a trio.  The trio will remain\r\n"
+				+ "turned up.  If the cards are different, they will flip back\r\n"
+				+ "over automatically after a short delay.  Continue flipping\r\n"
+				+ "cards until you have discovered all of the pairs.  The game\r\n"
+				+ "is won when all cards are face up.\r\n"
+				+ "\r\n"
+				+ "Each time you flip two cards up, the turn counter will\r\n"
+				+ "increase.  Try to win the game in the fewest number of turns!\r\n"
+				
+				+ "FLUSH LEVEL\r\n"
+				+ "The game consists of a grid of distinct cards.\r\n"
+				+ "Find five cards with the same suit. Ranks can be different\r\n"
+				
+				+ "STRAIGHT LEVEL\r\n"
+				+ "Find five cards that can be rearranged in ascending order in a sequence\r\n "
+				+ "with 2 or more Suits\r\n"
+				
+				+ "COMBO LEVEL\r\n"
+				+ "Find five cards that contain either PAIRS, TRIOS, FLUSH, STRAIGHT, OR a FULL HOUSE!\r\n"
+				+ "You can either accept the current hand/s or pass.";
+		
 		JOptionPane.showMessageDialog(this.mainFrame, HOWTOPLAYTEXT
 				, "How To Play", JOptionPane.PLAIN_MESSAGE);
 	}
