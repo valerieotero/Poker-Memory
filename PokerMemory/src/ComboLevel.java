@@ -1,10 +1,26 @@
+import javax.swing.AbstractButton;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+import java.awt.Container;
+import java.awt.Dialog;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Arrays;
 
 public class ComboLevel extends FlushLevel{
 	
 	private long scoreLabel;
+	private int highestCard;
+	
 	protected ComboLevel(TurnsTakenCounterLabel validTurnTime, JFrame mainFrame) {
 		super(validTurnTime, mainFrame);
 		this.getTurnsTakenCounter().setDifficultyModeLabel("Flush Level");
@@ -12,6 +28,7 @@ public class ComboLevel extends FlushLevel{
 		this.setCardsPerRow(10);
 		this.setRowsPerGrid(5);
 		scoreLabel = 0;
+		
 	}
 	public long getScoreLabel() 
 	{
@@ -71,11 +88,13 @@ public class ComboLevel extends FlushLevel{
 			return Long.parseLong(theCard.getRank());
 		}
 	}
+	
 	public void scoreIncrement(Card card1,Card card2, Card card3, Card card4, Card card5) 
 	{
 		scoreLabel = scoreLabel + 700 + this.getRankValue(card1) + this.getRankValue(card2) +
 				this.getRankValue(card3) + this.getRankValue(card4) + this.getRankValue(card5);
 	}
+	
 	protected boolean turnUp(Card card) {
 		// the card may be turned
 		if(this.getTurnedCardsBuffer().size() < getCardsToTurnUp()) 
@@ -96,6 +115,8 @@ public class ComboLevel extends FlushLevel{
 				long[] straight = {super.getRankValue(card),super.getRankValue(otherCard1),super.getRankValue(otherCard2),super.getRankValue(otherCard3),super.getRankValue(otherCard4)};
 				Arrays.sort(straight);
 				
+				
+				
 					if((card.getSuit().equals(otherCard1.getSuit())) && 
 						(card.getSuit().equals(otherCard2.getSuit())) &&
 						(card.getSuit().equals(otherCard3.getSuit())) &&
@@ -105,7 +126,7 @@ public class ComboLevel extends FlushLevel{
 					this.scoreIncrement( card, otherCard1, otherCard2, otherCard3, otherCard4);
 					this.getMainFrame().setScore(this.getScoreLabel());
 					this.getTurnedCardsBuffer().clear();
-				}
+				}//showDialog(card);
 					//SraightLevel
 					if(straight[0] == 10 && straight[1] == 11 && straight[2] == 12 && straight[3] == 13 && straight[4] == 20)
 					{
@@ -131,11 +152,15 @@ public class ComboLevel extends FlushLevel{
 
 					
 				}
-			}
+					
+			} //showDialog(card);
+			
 			return true;
 		}
 return false;
 	}
-	
-	
+
+//Pass box
+Object [] possibleValues = {"Select one--", "Pass" , "blah"};
+Object selectedValue = JOptionPane.showInputDialog (null, "Choose your evalution method"); 
 }
