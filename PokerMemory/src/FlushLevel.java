@@ -108,12 +108,11 @@ public class FlushLevel extends RankTrioLevel{
 					this.scoreIncrement( card, otherCard1, otherCard2, otherCard3, otherCard4);
 					this.getMainFrame().setScore(this.getScoreLabel());
 					this.getTurnedCardsBuffer().clear();
-					System.out.println(this.getGrid().size());
 				}
 				else
 				{
 					// The cards do not match, so start the timer to turn them down
-										this.scoreLabel -= 5;
+					this.scoreLabel -= 5;
 					this.getMainFrame().setScore(this.scoreLabel);
 					this.getTurnDownTimer().start();
 					
