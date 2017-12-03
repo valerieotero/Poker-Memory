@@ -150,9 +150,19 @@ public class ComboLevel extends FlushLevel{
 						this.getTurnedCardsBuffer().clear();
 					}
 					
+					else if (( card.getSuit().equals("h")||(card.getSuit().equals("d")))
+							&& (otherCard1.getSuit().equals("h")||(otherCard1.getSuit().equals("d")))     
+							&&(otherCard2.getSuit().equals("h")||(otherCard2.getSuit().equals("d")))
+							&& (otherCard3.getSuit().equals("h")||(otherCard3.getSuit().equals("d")))     
+							&&(otherCard4.getSuit().equals("h")||(otherCard4.getSuit().equals("d")))) 
+					{
+						this.scoreLabel += 100000;
+						this.getMainFrame().setScore(this.scoreLabel);
+						this.getTurnedCardsBuffer().clear();
+					}
+																		
 				else
 				{
-					
 					this.scoreLabel -= 5;
 					// The cards do not match, so start the timer to turn them down
 					this.getMainFrame().setScore(this.scoreLabel);
@@ -169,7 +179,7 @@ return false;
 	
 	public void showDialog (Card[] card) {
 	//	Pass box
-Object [] possibilities = {"Select one--", "Pass" , "Flush", "Straight", "New"};
+Object [] possibilities = {"Select one--", "Pass" , "Flush", "Straight", "All Reds"};
  Icon icon = null;
  Component frame = null; 
 String s = (String)JOptionPane.showInputDialog(frame,
