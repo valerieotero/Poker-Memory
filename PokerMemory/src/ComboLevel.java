@@ -164,8 +164,7 @@ return false;
 //Pass box
 Object [] possibilities = {"Select one--", "Pass" , "Flush", "Staright", "New"};
 private Icon icon;
-private Component frame;
-//Object selectedValue = JOptionPane.showInputDialog (null, "Choose your evalution method"); 
+private Component frame; 
 String s = (String)JOptionPane.showInputDialog(frame,
         "Choose method evaluation\n" +
          "For the game:",
