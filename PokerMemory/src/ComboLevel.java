@@ -149,11 +149,10 @@ public class ComboLevel extends FlushLevel{
 					// The cards do not match, so start the timer to turn them down
 					this.getMainFrame().setScore(this.scoreLabel);
 					this.getTurnDownTimer().start();
-
-					
+				
 				}
 					
-			} //showDialog(card);
+			} 
 			
 			return true;
 		}
