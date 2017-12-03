@@ -1,6 +1,7 @@
 import javax.swing.AbstractButton;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -8,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dialog;
 import java.awt.Dimension;
@@ -28,6 +30,7 @@ public class ComboLevel extends FlushLevel{
 		this.setCardsPerRow(10);
 		this.setRowsPerGrid(5);
 		scoreLabel = 0;
+		 
 		
 	}
 	public long getScoreLabel() 
@@ -37,7 +40,6 @@ public class ComboLevel extends FlushLevel{
 	@Override
 	protected void makeDeck() {
 		// In Trio level the grid consists of distinct cards, no repetitions
-
 		//back card
 		ImageIcon backIcon = this.getCardIcons()[this.getTotalCardsPerDeck()];
 
@@ -111,7 +113,7 @@ public class ComboLevel extends FlushLevel{
 				Card otherCard2 = (Card) this.getTurnedCardsBuffer().get(1);
 				Card otherCard3 = (Card) this.getTurnedCardsBuffer().get(2);
 				Card otherCard4 = (Card) this.getTurnedCardsBuffer().get(3);
-
+				
 				long[] straight = {super.getRankValue(card),super.getRankValue(otherCard1),super.getRankValue(otherCard2),super.getRankValue(otherCard3),super.getRankValue(otherCard4)};
 				Arrays.sort(straight);
 				
@@ -158,8 +160,18 @@ public class ComboLevel extends FlushLevel{
 		}
 return false;
 	}
-
+	
 //Pass box
-Object [] possibleValues = {"Select one--", "Pass" , "blah"};
-Object selectedValue = JOptionPane.showInputDialog (null, "Choose your evalution method"); 
+Object [] possibilities = {"Select one--", "Pass" , "Flush", "Staright", "New"};
+private Icon icon;
+private Component frame;
+//Object selectedValue = JOptionPane.showInputDialog (null, "Choose your evalution method"); 
+String s = (String)JOptionPane.showInputDialog(frame,
+        "Choose method evaluation\n" +
+         "For the game:",
+        "Customized Dialog",
+        JOptionPane.PLAIN_MESSAGE,
+        icon, possibilities, "ham");
+
+
 }
