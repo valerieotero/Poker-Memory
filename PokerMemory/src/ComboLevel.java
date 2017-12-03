@@ -30,15 +30,16 @@ public class ComboLevel extends FlushLevel{
 		this.setCardsPerRow(10);
 		this.setRowsPerGrid(5);
 		scoreLabel = 0;
-		 
-		
-	}
+	}	
+
 	public long getScoreLabel() 
 	{
 		return scoreLabel;
 	}
+	
 	@Override
 	protected void makeDeck() {
+		
 		// In Trio level the grid consists of distinct cards, no repetitions
 		//back card
 		ImageIcon backIcon = this.getCardIcons()[this.getTotalCardsPerDeck()];
@@ -101,6 +102,7 @@ public class ComboLevel extends FlushLevel{
 		// the card may be turned
 		if(this.getTurnedCardsBuffer().size() < getCardsToTurnUp()) 
 		{
+						
 			// add the card to the list
 			this.getTurnedCardsBuffer().add(card);
 			if(this.getTurnedCardsBuffer().size() == getCardsToTurnUp())
@@ -114,21 +116,24 @@ public class ComboLevel extends FlushLevel{
 				Card otherCard3 = (Card) this.getTurnedCardsBuffer().get(2);
 				Card otherCard4 = (Card) this.getTurnedCardsBuffer().get(3);
 				
+				Card[] cards = null;
+				showDialog (cards);
+				
 				long[] straight = {super.getRankValue(card),super.getRankValue(otherCard1),super.getRankValue(otherCard2),super.getRankValue(otherCard3),super.getRankValue(otherCard4)};
 				Arrays.sort(straight);
 				
-				
-				
-					if((card.getSuit().equals(otherCard1.getSuit())) && 
+						if((card.getSuit().equals(otherCard1.getSuit())) && 
 						(card.getSuit().equals(otherCard2.getSuit())) &&
 						(card.getSuit().equals(otherCard3.getSuit())) &&
-						(card.getSuit().equals(otherCard4.getSuit())))
+						(card.getSuit().equals(otherCard4.getSuit()))) 
+							
+														
 				{
 				// Three cards match, so remove them from the list (they will remain face up)
 					this.scoreIncrement( card, otherCard1, otherCard2, otherCard3, otherCard4);
 					this.getMainFrame().setScore(this.getScoreLabel());
 					this.getTurnedCardsBuffer().clear();
-				}//showDialog(card);
+				}
 					//SraightLevel
 					if(straight[0] == 10 && straight[1] == 11 && straight[2] == 12 && straight[3] == 13 && straight[4] == 20)
 					{
@@ -147,6 +152,7 @@ public class ComboLevel extends FlushLevel{
 					
 				else
 				{
+					
 					this.scoreLabel -= 5;
 					// The cards do not match, so start the timer to turn them down
 					this.getMainFrame().setScore(this.scoreLabel);
@@ -161,16 +167,20 @@ public class ComboLevel extends FlushLevel{
 return false;
 	}
 	
-//Pass box
-Object [] possibilities = {"Select one--", "Pass" , "Flush", "Staright", "New"};
-private Icon icon;
-private Component frame; 
+	public void showDialog (Card[] card) {
+	//	Pass box
+Object [] possibilities = {"Select one--", "Pass" , "Flush", "Straight", "New"};
+ Icon icon = null;
+ Component frame = null; 
 String s = (String)JOptionPane.showInputDialog(frame,
         "Choose method evaluation\n" +
          "For the game:",
         "Customized Dialog",
         JOptionPane.PLAIN_MESSAGE,
         icon, possibilities, "ham");
+	}
+	
+
 
 
 }
