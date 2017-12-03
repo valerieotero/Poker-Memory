@@ -2,7 +2,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class FlushLevel extends RankTrioLevel{
+	
 	private long scoreLabel;
+	private long counter = 0;
+	
+	
 	protected FlushLevel(TurnsTakenCounterLabel validTurnTime, JFrame mainFrame) {
 		super(validTurnTime, mainFrame);
 		this.getTurnsTakenCounter().setDifficultyModeLabel("Flush Level");
@@ -10,6 +14,7 @@ public class FlushLevel extends RankTrioLevel{
 		this.setCardsPerRow(10);
 		this.setRowsPerGrid(5);
 		scoreLabel = 0;
+		
 	}
 	public long getScoreLabel() 
 	{
@@ -104,11 +109,16 @@ public class FlushLevel extends RankTrioLevel{
 				}
 				else
 				{
-					this.scoreLabel -= 5;
 					// The cards do not match, so start the timer to turn them down
+					if(this.getGrid().size() == 5) 
+					{
+						counter = this.scoreLabel;
+					}
+					this.scoreLabel -= 5;
 					this.getMainFrame().setScore(this.scoreLabel);
 					this.getTurnDownTimer().start();
-
+					
+					
 					
 				}
 			}
@@ -121,9 +131,9 @@ return false;
 	protected boolean  isGameOver(){
 
 		for (int i =0; i< this.getGrid().size();i++)
-			if(!this.getGrid().get(i).isFaceUp()) return false;
+			if(!this.getGrid().get(i).isFaceUp()||(this.getGrid().size()== 5 && counter - 5 == this.scoreLabel )) return false;
+		
 
-		if(this.getGrid().size() == 5) {}
 		return true;
 	}
 	
