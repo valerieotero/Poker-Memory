@@ -89,7 +89,7 @@ public class MenuItems extends MemoryFrame {
 
         // make a new card field with cards, and add it to the window
 
-        if(difficultyMode.equalsIgnoreCase("easyLevel")) {
+        if(difficultyMode.equalsIgnoreCase("easy")) {
             this.setGameLevel(new EasyLevel(this.getTurnCounterLabel(), this));
             this.getLevelDescriptionLabel().setText("Easy Level");
             this.getTurnCounterLabel().reset();
