@@ -145,8 +145,8 @@ public class MenuItems extends MemoryFrame {
   
     public void showInstructions()
     {
-    	Scrollbar redSlider = new Scrollbar(Scrollbar.VERTICAL, 0, 1, 0, 255);
-    	 add(redSlider);
+    	//Scrollbar redSlider = new Scrollbar(Scrollbar.VERTICAL, 0, 1, 0, 255);
+    	 //add(redSlider);
     	
         dprintln("MemoryGame.showInstructions()");
         final String HOWTOPLAYTEXT = "How To Play\r\n"
