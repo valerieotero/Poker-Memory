@@ -152,39 +152,39 @@ return false;
 
 			for(int j = 0;j < this.getGrid().size();j++) //Makes the arrays of the suits of Face Down Cards
 			{
-				if(this.getRankValue(this.getGrid().get(j)) <= 5 || this.getRankValue(this.getGrid().get(j)) == 20)
+				if(this.getRankValue(this.getGrid().get(j)) <= 5 || this.getRankValue(this.getGrid().get(j)) == 20 && this.getGrid().get(j).isFaceUp() == false)
 				{
 				aToFive.add(this.getGrid().get(j));
 				}
-				if(this.getRankValue(this.getGrid().get(j)) >= 2 && this.getRankValue(this.getGrid().get(j)) <= 6)
+				if(this.getRankValue(this.getGrid().get(j)) >= 2 && this.getRankValue(this.getGrid().get(j)) <= 6 && this.getGrid().get(j).isFaceUp() == false)
 				{
 					twoToSix.add(this.getGrid().get(j));
 				}
-				if(this.getRankValue(this.getGrid().get(j)) >= 3 && this.getRankValue(this.getGrid().get(j)) <= 7)
+				if(this.getRankValue(this.getGrid().get(j)) >= 3 && this.getRankValue(this.getGrid().get(j)) <= 7 && this.getGrid().get(j).isFaceUp() == false)
 				{
 					threeToSeven.add(this.getGrid().get(j));
 				}
-				if(this.getRankValue(this.getGrid().get(j)) >= 4 && this.getRankValue(this.getGrid().get(j)) <= 8)
+				if(this.getRankValue(this.getGrid().get(j)) >= 4 && this.getRankValue(this.getGrid().get(j)) <= 8 && this.getGrid().get(j).isFaceUp() == false)
 				{
 					fourToEight.add(this.getGrid().get(j));
 				}
-				if(this.getRankValue(this.getGrid().get(j)) >= 5 && this.getRankValue(this.getGrid().get(j)) <= 9)
+				if(this.getRankValue(this.getGrid().get(j)) >= 5 && this.getRankValue(this.getGrid().get(j)) <= 9 && this.getGrid().get(j).isFaceUp() == false)
 				{
 					fiveToNine.add(this.getGrid().get(j));
 				}
-				if(this.getRankValue(this.getGrid().get(j)) >= 6 && this.getRankValue(this.getGrid().get(j)) <= 10)
+				if(this.getRankValue(this.getGrid().get(j)) >= 6 && this.getRankValue(this.getGrid().get(j)) <= 10 && this.getGrid().get(j).isFaceUp() == false)
 				{
 					sixToTen.add(this.getGrid().get(j));
 				}
-				if(this.getRankValue(this.getGrid().get(j)) >= 7 && this.getRankValue(this.getGrid().get(j)) <= 11)
+				if(this.getRankValue(this.getGrid().get(j)) >= 7 && this.getRankValue(this.getGrid().get(j)) <= 11 && this.getGrid().get(j).isFaceUp() == false)
 				{
 					sevenToJ.add(this.getGrid().get(j));
 				}
-				if(this.getRankValue(this.getGrid().get(j)) >= 8 && this.getRankValue(this.getGrid().get(j)) <= 12)
+				if(this.getRankValue(this.getGrid().get(j)) >= 8 && this.getRankValue(this.getGrid().get(j)) <= 12 && this.getGrid().get(j).isFaceUp() == false)
 				{
 					eightToQ.add(this.getGrid().get(j));
 				}
-				if(this.getRankValue(this.getGrid().get(j)) >= 9 && this.getRankValue(this.getGrid().get(j)) <= 13)
+				if(this.getRankValue(this.getGrid().get(j)) >= 9 && this.getRankValue(this.getGrid().get(j)) <= 13 && this.getGrid().get(j).isFaceUp() == false)
 				{
 					nineToK.add(this.getGrid().get(j));
 				}
