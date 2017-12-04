@@ -184,10 +184,10 @@ return false;
 	//	Evaluation box
 	public void showDialog (Card[] card) {
 	
-Object [] possibilities = {"Select one--", "Pass" , "Flush", "Straight", "All Reds"};
+Object [] possibilities = {"Select one--" , "Flush", "Straight", "All Reds"};
  Icon icon = null;
  Component frame = null; 
- int pass = JOptionPane.showConfirmDialog(null, "Do you want to keep this hand?", "Pass option", JOptionPane.YES_NO_OPTION);
+ int pass = JOptionPane.showConfirmDialog(null, "Do you want to keep this hand?", "Pass Option", JOptionPane.YES_NO_OPTION);
  if(pass == 0) 
  {
 String s = (String)JOptionPane.showInputDialog(frame, "Choose method evaluation\n" +  "For the game:", "Evaluation Method",JOptionPane.PLAIN_MESSAGE, icon, possibilities, "s");
