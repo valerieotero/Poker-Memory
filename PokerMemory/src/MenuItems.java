@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Scrollbar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
@@ -144,6 +145,9 @@ public class MenuItems extends MemoryFrame {
   
     public void showInstructions()
     {
+    	Scrollbar redSlider = new Scrollbar(Scrollbar.VERTICAL, 0, 1, 0, 255);
+    	 add(redSlider);
+    	
         dprintln("MemoryGame.showInstructions()");
         final String HOWTOPLAYTEXT = "How To Play\r\n"
                 + "\r\n"
@@ -185,8 +189,8 @@ public class MenuItems extends MemoryFrame {
                 + "with 2 or more Suits\r\n"
                
                 + "COMBO LEVEL\r\n"
-                + "Find five cards that contain either PAIRS, TRIOS, FLUSH, STRAIGHT, OR a FULL HOUSE!\r\n"
-                + "You can either accept the current hand/s or pass.";
+                + "Find five cards that contain either TRIOS, FLUSH, STRAIGHT, OR a ALL REDS!\r\n"
+                + "You can either accept the current hand/s  and be evaluated by the three options or pass.";
        
         JOptionPane.showMessageDialog(this.mainFrame, HOWTOPLAYTEXT, "How To Play", JOptionPane.PLAIN_MESSAGE);
     }
