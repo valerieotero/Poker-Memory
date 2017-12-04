@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 public class FlushLevel extends RankTrioLevel{
 	
 	private long scoreLabel;
-	private long counter;
+	
 	
 	
 	protected FlushLevel(TurnsTakenCounterLabel validTurnTime, JFrame mainFrame) {
@@ -16,7 +16,7 @@ public class FlushLevel extends RankTrioLevel{
 		this.setCardsPerRow(10);
 		this.setRowsPerGrid(5);
 		scoreLabel = 0;
-		counter = 0;
+		 
 	}
 	public long getScoreLabel() 
 	{
@@ -127,7 +127,7 @@ return false;
 	
 	@Override
 	protected boolean  isGameOver(){
-		ArrayList<Card>  daimonds = new ArrayList<Card>();
+		ArrayList<Card>  diamonds = new ArrayList<Card>();
 		ArrayList<Card>  hearts = new ArrayList<Card>();
 		ArrayList<Card>  spades = new ArrayList<Card>();
 		ArrayList<Card>  crest = new ArrayList<Card>();
@@ -136,7 +136,7 @@ return false;
 		{
 			if(this.getGrid().get(j).getSuit().equals("d") && this.getGrid().get(j).isFaceUp() == false)
 			{
-				daimonds.add(this.getGrid().get(j));
+				diamonds.add(this.getGrid().get(j));
 			}
 			else if(this.getGrid().get(j).getSuit().equals("c") && this.getGrid().get(j).isFaceUp() == false)
 			{
@@ -153,7 +153,7 @@ return false;
 		}
 		
 		for (int i =0; i< this.getGrid().size();i++)
-			if(!this.getGrid().get(i).isFaceUp() && (daimonds.size() >= 5 || hearts.size() >= 5 || crest.size() >= 5 || spades.size() >= 5)) //The new condition states that there a need for at least one array of suits of the
+			if(!this.getGrid().get(i).isFaceUp() && (diamonds.size() >= 5 || hearts.size() >= 5 || crest.size() >= 5 || spades.size() >= 5)) //The new condition states that there a need for at least one array of suits of the
 			{return false;}
 		
 

@@ -11,7 +11,7 @@ public class StraightLevel extends FlushLevel
 	protected StraightLevel(TurnsTakenCounterLabel validTurnTime, JFrame mainFrame) {
 		super(validTurnTime, mainFrame);
 		scoreLabel = 0;
-	
+		
 //	
 	}
 	
@@ -36,7 +36,12 @@ public class StraightLevel extends FlushLevel
 				Arrays.sort(straight);
 				
 
-				if((straight[0] == 10 && straight[1] == 11 && straight[2] == 12 && straight[3] == 13 && straight[4] == 20) || (straight[0] == 2 && straight[1] == 3 && straight[2] == 4 && straight[3] == 5 && straight[4] == 20))
+				if(((straight[0] == 10 && straight[1] == 11 && straight[2] == 12 && straight[3] == 13 && straight[4] == 20) 
+						|| (straight[0] == 2 && straight[1] == 3 && straight[2] == 4 && straight[3] == 5 && straight[4] == 20))
+						&&!((card.getSuit().equals(otherCard1.getSuit())) && 
+								(card.getSuit().equals(otherCard2.getSuit())) &&
+								(card.getSuit().equals(otherCard3.getSuit())) &&
+								(card.getSuit().equals(otherCard4.getSuit()))))
 				{
 				// Three cards match, so remove them from the list (they will remain face up)
 					this.scoreLabel += 20 * 100 + 1000;
