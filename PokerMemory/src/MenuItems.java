@@ -159,20 +159,8 @@ public class MenuItems extends MemoryFrame {
     	//JTextArea textArea = new JTextArea(5, 30);
     	
     	
-        dprintln("MemoryGame.showInstructions()");
-        
-        
-//    	JScrollPane scrollPane = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-//    	
-//    	textArea.setText(all);
-//    	textArea.setLineWrap(true);
-//    	
-//    	setPreferredSize(new Dimension(450, 110));
-//    	
-//    	add(scrollPane, BorderLayout.CENTER);
-//        
-        
-        
+        dprintln("MemoryGame.showInstructions()");          
+            
         final String HOWTOPLAYTEXT = "How To Play\r\n"
                 + "\r\n"
                
