@@ -20,6 +20,8 @@ import java.util.Arrays;
 
 public class ComboLevel extends FlushLevel{
 	
+	// COMBO LEVEL: The goal is to chose, on each turn, how you want to evaluate your hand 
+	
 	private long scoreLabel;
 	private int highestCard;
 	
@@ -40,7 +42,7 @@ public class ComboLevel extends FlushLevel{
 	@Override
 	protected void makeDeck() {
 		
-		// In Trio level the grid consists of distinct cards, no repetitions
+		// In Combo level the grid consists of distinct cards, no repetitions
 		//back card
 		ImageIcon backIcon = this.getCardIcons()[this.getTotalCardsPerDeck()];
 
@@ -116,6 +118,7 @@ public class ComboLevel extends FlushLevel{
 				Card otherCard3 = (Card) this.getTurnedCardsBuffer().get(2);
 				Card otherCard4 = (Card) this.getTurnedCardsBuffer().get(3);
 				
+				//shows the 
 				Card[] cards = null;
 				showDialog (cards);
 				
@@ -150,13 +153,14 @@ public class ComboLevel extends FlushLevel{
 						this.getTurnedCardsBuffer().clear();
 					}
 					
+					//All Reds Level
 					else if (( card.getSuit().equals("h")||(card.getSuit().equals("d")))
 							&& (otherCard1.getSuit().equals("h")||(otherCard1.getSuit().equals("d")))     
 							&&(otherCard2.getSuit().equals("h")||(otherCard2.getSuit().equals("d")))
 							&& (otherCard3.getSuit().equals("h")||(otherCard3.getSuit().equals("d")))     
 							&&(otherCard4.getSuit().equals("h")||(otherCard4.getSuit().equals("d")))) 
 					{
-						this.scoreLabel += 100000;
+						this.scoreLabel += straight[4] * 5 + 55555 ;
 						this.getMainFrame().setScore(this.scoreLabel);
 						this.getTurnedCardsBuffer().clear();
 					}
@@ -177,8 +181,9 @@ public class ComboLevel extends FlushLevel{
 return false;
 	}
 	
+	//	Evaluation box
 	public void showDialog (Card[] card) {
-	//	Pass box
+	
 Object [] possibilities = {"Select one--", "Pass" , "Flush", "Straight", "All Reds"};
  Icon icon = null;
  Component frame = null; 

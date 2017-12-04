@@ -24,7 +24,7 @@ public class FlushLevel extends RankTrioLevel{
 	}
 	@Override
 	protected void makeDeck() {
-		// In Trio level the grid consists of distinct cards, no repetitions
+		// In Flush level the grid consists of distinct cards, no repetitions
 
 		//back card
 		ImageIcon backIcon = this.getCardIcons()[this.getTotalCardsPerDeck()];
