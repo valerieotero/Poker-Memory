@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Scrollbar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +16,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
@@ -142,56 +145,76 @@ public class MenuItems extends MemoryFrame {
         this.setVisible(true);
     }
    
+//    
+//    public class ScrollPane
+//    {
+//    	
+//    }
   
     public void showInstructions()
     {
     	//Scrollbar redSlider = new Scrollbar(Scrollbar.VERTICAL, 0, 1, 0, 255);
     	 //add(redSlider);
+    	//In a container that uses a BorderLayout:
+    	//JTextArea textArea = new JTextArea(5, 30);
+    	
     	
         dprintln("MemoryGame.showInstructions()");
+        
+        
+//    	JScrollPane scrollPane = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+//    	
+//    	textArea.setText(all);
+//    	textArea.setLineWrap(true);
+//    	
+//    	setPreferredSize(new Dimension(450, 110));
+//    	
+//    	add(scrollPane, BorderLayout.CENTER);
+//        
+        
+        
         final String HOWTOPLAYTEXT = "How To Play\r\n"
                 + "\r\n"
                
-                + "EQUAL PAIR Level\r\n"
-                + "The game consists of 8 pairs of cards.  At the start of the game,\r\n"
-                + "every card is face down.  The object is to find all the pairs and\r\n"
-                + "turn them face up.\r\n"
-                + "\r\n"
-                + "Click on two cards to turn them face up. If the cards are the \r\n"
-                + "same, then you have discovered a pair.  The pair will remain\r\n"
-                + "turned up.  If the cards are different, they will flip back\r\n"
-                + "over automatically after a short delay.  Continue flipping\r\n"
-                + "cards until you have discovered all of the pairs.  The game\r\n"
-                + "is won when all cards are face up.\r\n"
+                + "EQUAL PAIR LEVEL\r\n"
+                + "The game consists of 8 pairs of cards. At the start of the game every card is face down. The object is to find all the pairs and turn them face up.\r\n"
+                + "Click on two cards to turn them face up. If the cards are the same, then you have discovered a pair. he pair will remain turned up. \r\n"
+                + " If the cards are different, they will flip back over autmatically after a short delay.\r\n"
+                + " Continue flipping cards until you have discovered all of the pairs.The game is won when all cards are face up.\r\n"
                 + "\r\n"
                
-                + "SAME RANK TRIO Level\r\n"
-                + "The game consists of a grid of distinct cards.  At the start of the game,\r\n"
-                + "every card is face down.  The object is to find all the trios \r\n"
-                + "of cards with the same rank and turn them face up.\r\n"
+                + "SAME RANK TRIO LEVEL\r\n"
+                + "The game consists of a grid of distinct cards. At the start of the game every card is face down. The object is to find all the trios of cards, \r\n"                      
+                + "with the same rank and turn them face up. Click on three cards to turn them face up. If the cards have the same rank, then you have discovered a trio. \r\n"
+                + "The trio will remain turned up. If the cards are different, they will flip back over autmatically after a short delay.\r\n"              
                 + "\r\n"
-                + "Click on three cards to turn them face up. If the cards have the \r\n"
-                + "same rank, then you have discovered a trio.  The trio will remain\r\n"
-                + "turned up.  If the cards are different, they will flip back\r\n"
-                + "over automatically after a short delay.  Continue flipping\r\n"
-                + "cards until you have discovered all of the pairs.  The game\r\n"
-                + "is won when all cards are face up.\r\n"
-                + "\r\n"
-                + "Each time you flip two cards up, the turn counter will\r\n"
-                + "increase.  Try to win the game in the fewest number of turns!\r\n"
                
                 + "FLUSH LEVEL\r\n"
-                + "The game consists of a grid of distinct cards.\r\n"
-                + "Find five cards with the same suit. Ranks can be different\r\n"
-               
+                + "The game consists of a grid of distinct cards. At the start of the game every card is face down. \r\n"
+                + "The object is to find five cards with the same suit and turn them face up. \r\n"               
+                + "This would be a Flush Hand. Click on five cards to turn them face up. If the cards have the same suit, then you have discovered a flush. \r\n"
+                + "The flush hand will remain turned up. If the cards are different, they will flip back over autmatically after a short delay.\r\n"
+                + "Continue flipping cards until you have discovered all of the suits. The game is won when all cards are face up.\r\n" 
+                + "\r\n"
+                
                 + "STRAIGHT LEVEL\r\n"
-                + "Find five cards that can be rearranged in ascending order in a sequence\r\n "
-                + "with 2 or more Suits\r\n"
+                + "The game consists of a grid of distinct cards. At the start of the game every card is face down.\r\n"
+                + "The object is to find five cards that can be rearranged in a sequence of ascending order and turn them face up.\r\n "
+                + "This would be a Straight Hand. Click on five cards to turn them face up. \r\n\""
+                + "If the cards can be rearranged in a sequence of ascending order, then you have discovered a straight. The straight hand will remain turned up \r\n"
+                + "If the cards are different, they will flip back over autmatically after a short delay.\r\n" 
+                + " Continue flipping cards until you have discovered all of the straights. The game is won when all cards are face up\r\n"
+                + "\r\n"
                
                 + "COMBO LEVEL\r\n"
-                + "Find five cards that contain either TRIOS, FLUSH, STRAIGHT, OR a ALL REDS!\r\n"
-                + "You can either accept the current hand/s  and be evaluated by the three options or pass.";
-       
+                + "The game consists of a grid of distinct cards. At the start of the game every card is face down.\r\n"
+                + "The object is to find five cards that contain either FLUSH, STRAIGHT OR an ALL REDS and turn them face up!\r\n"
+                + "The new level(All Reds) consists of finding five cards that have the same color, in this case: Red. Click on five cards to turn them face up\r\n"
+                + "You can either accept the current hand and be evaluaed by the three options or pass \r\n\""
+        		+ "The chosen hand will remain turned up. If the cards are different, they will flip back over autmatically, after a short delay.\r\n" 
+        		+ "Continue flipping cards until you have discovered all of the possible options.The game is won when all cards are face up.\r\n";
+        		
+        
         JOptionPane.showMessageDialog(this.mainFrame, HOWTOPLAYTEXT, "How To Play", JOptionPane.PLAIN_MESSAGE);
     }
     private void showAbout()
