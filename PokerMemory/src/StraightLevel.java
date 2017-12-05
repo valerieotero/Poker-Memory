@@ -106,40 +106,7 @@ return false;
 			}
 		}
 		
-//		@Override
-//		protected boolean  isGameOver(){
-//			ArrayList<Card>  daimonds = new ArrayList<Card>();
-//			ArrayList<Card>  hearts = new ArrayList<Card>();
-//			ArrayList<Card>  spades = new ArrayList<Card>();
-//			ArrayList<Card>  crest = new ArrayList<Card>();
-//
-//			for(int j = 0;j < this.getGrid().size();j++) //Makes the arrays of the suits of Face Down Cards
-//			{
-//				if(this.getGrid().get(j).getSuit().equals("d") && this.getGrid().get(j).isFaceUp() == false)
-//				{
-//					daimonds.add(this.getGrid().get(j));
-//				}
-//				else if(this.getGrid().get(j).getSuit().equals("c") && this.getGrid().get(j).isFaceUp() == false)
-//				{
-//					crest.add(this.getGrid().get(j));
-//				}
-//				else if(this.getGrid().get(j).getSuit().equals("h") && this.getGrid().get(j).isFaceUp() == false)
-//				{
-//					hearts.add(this.getGrid().get(j));
-//				}
-//				else if(this.getGrid().get(j).getSuit().equals("s") && this.getGrid().get(j).isFaceUp() == false)
-//				{
-//					spades.add(this.getGrid().get(j));
-//				}
-//			}
-//			
-//			for (int i =0; i< this.getGrid().size();i++)
-//				if(!this.getGrid().get(i).isFaceUp() && (daimonds.size() >= 5 || hearts.size() >= 5 || crest.size() >= 5 || spades.size() >= 5)) //The new condition states that there a need for at least one array of suits of the
-//				{return false;}
-//			
-//
-//			return true;
-//		}
+//		
 		@Override
 		protected boolean  isGameOver(){
 			ArrayList<Card>  aToFive = new ArrayList<Card>();

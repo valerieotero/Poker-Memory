@@ -1,26 +1,26 @@
 import java.awt.BorderLayout;
 import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Scrollbar;
+//import java.awt.Dimension;
+//import java.awt.Scrollbar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
+//import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+//import javax.swing.Box;
+//import javax.swing.BoxLayout;
+//import javax.swing.JFrame;
+//import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.LineBorder;
+//import javax.swing.JPanel;
+//import javax.swing.JScrollPane;
+//import javax.swing.JTextArea;
+//import javax.swing.SwingConstants;
+//import javax.swing.border.EmptyBorder;
+//import javax.swing.border.LineBorder;
 
 public class MenuItems extends MemoryFrame {
 
@@ -153,10 +153,7 @@ public class MenuItems extends MemoryFrame {
   
     public void showInstructions()
     {
-    	//Scrollbar redSlider = new Scrollbar(Scrollbar.VERTICAL, 0, 1, 0, 255);
-    	 //add(redSlider);
-    	//In a container that uses a BorderLayout:
-    	//JTextArea textArea = new JTextArea(5, 30);
+    	
     	
     	
         dprintln("MemoryGame.showInstructions()");          
