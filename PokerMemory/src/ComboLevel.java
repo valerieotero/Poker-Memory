@@ -160,7 +160,7 @@ public class ComboLevel extends FlushLevel{
 							&& (otherCard3.getSuit().equals("h")||(otherCard3.getSuit().equals("d")))     
 							&&(otherCard4.getSuit().equals("h")||(otherCard4.getSuit().equals("d")))) 
 					{
-						this.scoreLabel += straight[4] * 5 + 5555 ;
+						this.scoreLabel += straight[4] * 5 + 555 ;
 						this.getMainFrame().setScore(this.scoreLabel);
 						this.getTurnedCardsBuffer().clear();
 					}

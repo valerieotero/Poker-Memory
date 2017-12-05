@@ -61,6 +61,7 @@ public class MenuItems extends MemoryFrame {
                 }
             }
         };
+        
         JMenuItem flushLevelMenuItem = new JMenuItem("Flush Level");
         flushLevelMenuItem.addActionListener(menuHandler);
         memoryMenu.add(flushLevelMenuItem);
@@ -186,7 +187,7 @@ public class MenuItems extends MemoryFrame {
                
                 + "COMBO LEVEL\r\n"
                 + "The game consists of a grid of distinct cards. At the start of the game every card is face down.\r\n"
-                + "The object is to find five cards that contain either FLUSH, STRAIGHT OR an ALL REDS and turn them face up!\r\n"
+                + "The object is to find five cards that contain either FLUSH, STRAIGHT OR an ALL REDS and turn them face up.\r\n"
                 + "The new level(All Reds) consists of finding five cards that have the same color, in this case: Red. Click on five cards to turn them face up\r\n"
                 + "You can either accept the current hand and be evaluaed by the three options or pass \r\n\""
         		+ "The chosen hand will remain turned up. If the cards are different, they will flip back over automatically, after a short delay.\r\n" 
