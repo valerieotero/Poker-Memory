@@ -1,21 +1,9 @@
-import javax.swing.AbstractButton;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-
 import java.awt.Component;
-import java.awt.Container;
-import java.awt.Dialog;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -24,7 +12,7 @@ public class ComboLevel extends FlushLevel{
 	// COMBO LEVEL: The goal is to chose, on each turn, how you want to evaluate your hand 
 	
 	private long scoreLabel;
-	private int highestCard;
+	//private int highestCard;
 	
 	protected ComboLevel(TurnsTakenCounterLabel validTurnTime, JFrame mainFrame) {
 		super(validTurnTime, mainFrame);
@@ -235,7 +223,7 @@ String s = (String)JOptionPane.showInputDialog(frame, "Choose method evaluation\
 	
 	public boolean redChecker() 
 	{
-		ArrayList<Card> redArray = new ArrayList();
+		ArrayList<Card> redArray = new ArrayList<Card>();
 		for(int i = 0; i < this.getGrid().size();i++) 
 		{
 			if((this.getGrid().get(i).getSuit().equalsIgnoreCase("d") || this.getGrid().get(i).getSuit().equalsIgnoreCase("h")) && this.getGrid().get(i).isFaceUp() == false) 
@@ -247,8 +235,9 @@ String s = (String)JOptionPane.showInputDialog(frame, "Choose method evaluation\
 		else {return false;}
 	}
 	
-	@Override
-	protected boolean  isGameOver(){
+	public boolean straight() 
+	{
+	
 		ArrayList<Card>  aToFive = new ArrayList<Card>();
 		ArrayList<Card>  twoToSix = new ArrayList<Card>();
 		ArrayList<Card>  threeToSeven = new ArrayList<Card>();
@@ -316,13 +305,29 @@ String s = (String)JOptionPane.showInputDialog(frame, "Choose method evaluation\
 		this.checkDuplicates(threeToSeven);
 		this.checkDuplicates(twoToSix);
 		this.checkDuplicates(aToFive);
+		if((aToFive.size() >= 5 || twoToSix.size() >= 5 || threeToSeven.size() >= 5 
+				|| fourToEight.size() >= 5 || fiveToNine.size() >= 5 || sixToTen.size() >= 5  || sevenToJ.size() >= 5 || eightToQ.size() >= 5 
+				|| nineToK.size() <= 5 || aToK.size() <= 5)) 
+		{
+			return true;
+		}
 		
-		for (int i =0; i< this.getGrid().size();i++)
-			if(!this.getGrid().get(i).isFaceUp() && (aToFive.size() >= 5 || twoToSix.size() >= 5 || threeToSeven.size() >= 5 
-			|| fourToEight.size() >= 5 || fiveToNine.size() >= 5 || sixToTen.size() >= 5  || sevenToJ.size() >= 5 || eightToQ.size() >= 5 
-			|| nineToK.size() <= 5 || aToK.size() <= 5 || super.isGameOver() || this.redChecker() == true)) //The new condition states that there a need for at least one array of suits of the
-			{return false;}
+		else 
+		{
+			return false;
+		}
+	}
+	
+	@Override
+	protected boolean  isGameOver(){
+
 		
+		for (int i =0; i< this.getGrid().size();i++) {
+			if(!this.getGrid().get(i).isFaceUp() && (super.isGameOver() == false || this.redChecker() == true || this.straight() == true))
+			{
+				return false;
+			}
+		}
 		this.scoreLabel = 0;
 		return true;
 	}

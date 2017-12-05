@@ -8,13 +8,11 @@ public class RankTrioLevelWithScore extends RankTrioLevel
 	private final int LEVEL_INCREMENT = 100;
 	private final int PENALTY = 5;
 	private final int TRIO = 3;
-	private int counterHands;
 	
 	protected RankTrioLevelWithScore(TurnsTakenCounterLabel validTurnTime, JFrame mainFrame) 
 	{
 		super(validTurnTime, mainFrame);
 		scoreLabel = 0;
-		counterHands = 0;
 	}
 	
 	public void reset() 
@@ -110,7 +108,6 @@ public class RankTrioLevelWithScore extends RankTrioLevel
 					this.getTurnedCardsBuffer().clear();
 					this.rankIncrement(card);
 					this.getMainFrame().setScore(this.getScoreLabel());
-					this.counterHands++;
 				}
 				else
 				{
