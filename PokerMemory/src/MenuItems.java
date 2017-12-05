@@ -1,26 +1,27 @@
+
 import java.awt.BorderLayout;
 import java.awt.Component;
-//import java.awt.Dimension;
-//import java.awt.Scrollbar;
+import java.awt.Dimension;
+import java.awt.Scrollbar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-//import java.io.FileNotFoundException;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
-//import javax.swing.Box;
-//import javax.swing.BoxLayout;
-//import javax.swing.JFrame;
-//import javax.swing.JLabel;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-//import javax.swing.JPanel;
-//import javax.swing.JScrollPane;
-//import javax.swing.JTextArea;
-//import javax.swing.SwingConstants;
-//import javax.swing.border.EmptyBorder;
-//import javax.swing.border.LineBorder;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 
 public class MenuItems extends MemoryFrame {
 
@@ -61,6 +62,7 @@ public class MenuItems extends MemoryFrame {
                 }
             }
         };
+        
         JMenuItem flushLevelMenuItem = new JMenuItem("Flush Level");
         flushLevelMenuItem.addActionListener(menuHandler);
         memoryMenu.add(flushLevelMenuItem);
@@ -145,17 +147,10 @@ public class MenuItems extends MemoryFrame {
         this.setVisible(true);
     }
    
-//    
-//    public class ScrollPane
-//    {
-//    	
-//    }
   
     public void showInstructions()
     {
-    	
-    	
-    	
+    	   	    	
         dprintln("MemoryGame.showInstructions()");          
             
         final String HOWTOPLAYTEXT = "How To Play\r\n"
@@ -163,8 +158,8 @@ public class MenuItems extends MemoryFrame {
                
                 + "EQUAL PAIR LEVEL\r\n"
                 + "The game consists of 8 pairs of cards. At the start of the game every card is face down. The object is to find all the pairs and turn them face up.\r\n"
-                + "Click on two cards to turn them face up. If the cards are the same, then you have discovered a pair. he pair will remain turned up. \r\n"
-                + " If the cards are different, they will flip back over autmatically after a short delay.\r\n"
+                + "Click on two cards to turn them face up. If the cards are the same, then you have discovered a pair. The pair will remain turned up. \r\n"
+                + " If the cards are different, they will flip back over automatically after a short delay.\r\n"
                 + " Continue flipping cards until you have discovered all of the pairs.The game is won when all cards are face up.\r\n"
                 + "\r\n"
                
@@ -188,15 +183,15 @@ public class MenuItems extends MemoryFrame {
                 + "This would be a Straight Hand. Click on five cards to turn them face up. \r\n\""
                 + "If the cards can be rearranged in a sequence of ascending order, then you have discovered a straight. The straight hand will remain turned up \r\n"
                 + "If the cards are different, they will flip back over autmatically after a short delay.\r\n" 
-                + " Continue flipping cards until you have discovered all of the straights. The game is won when all cards are face up\r\n"
+                + "Continue flipping cards until you have discovered all of the straights. The game is won when all cards are face up\r\n"
                 + "\r\n"
                
                 + "COMBO LEVEL\r\n"
                 + "The game consists of a grid of distinct cards. At the start of the game every card is face down.\r\n"
-                + "The object is to find five cards that contain either FLUSH, STRAIGHT OR an ALL REDS and turn them face up!\r\n"
+                + "The object is to find five cards that contain either FLUSH, STRAIGHT OR an ALL REDS and turn them face up.\r\n"
                 + "The new level(All Reds) consists of finding five cards that have the same color, in this case: Red. Click on five cards to turn them face up\r\n"
                 + "You can either accept the current hand and be evaluaed by the three options or pass \r\n\""
-        		+ "The chosen hand will remain turned up. If the cards are different, they will flip back over autmatically, after a short delay.\r\n" 
+        		+ "The chosen hand will remain turned up. If the cards are different, they will flip back over automatically, after a short delay.\r\n" 
         		+ "Continue flipping cards until you have discovered all of the possible options.The game is won when all cards are face up.\r\n";
         		
         
@@ -212,3 +207,5 @@ public class MenuItems extends MemoryFrame {
     }
 
 }
+
+   

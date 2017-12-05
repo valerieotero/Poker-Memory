@@ -161,7 +161,7 @@ public class ComboLevel extends FlushLevel{
 							&& (otherCard3.getSuit().equals("h")||(otherCard3.getSuit().equals("d")))     
 							&&(otherCard4.getSuit().equals("h")||(otherCard4.getSuit().equals("d")))) 
 					{
-						this.scoreLabel += straight[4] * 5 + 55555 ;
+						this.scoreLabel += straight[4] * 5 + 555 ;
 						this.getMainFrame().setScore(this.scoreLabel);
 						this.getTurnedCardsBuffer().clear();
 					}
@@ -185,15 +185,16 @@ return false;
 	//	Evaluation box
 	public void showDialog (Card[] card) {
 	
-Object [] possibilities = {"Select one--", "Pass" , "Flush", "Straight", "All Reds"};
+Object [] possibilities = {"Select one--" , "Flush", "Straight", "All Reds"};
  Icon icon = null;
  Component frame = null; 
-String s = (String)JOptionPane.showInputDialog(frame,
-        "Choose method evaluation\n" +
-         "For the game:",
-        "Customized Dialog",
-        JOptionPane.PLAIN_MESSAGE,
-        icon, possibilities, "ham");
+ int pass = JOptionPane.showConfirmDialog(null, "Do you want to keep this hand?", "Pass Option", JOptionPane.YES_NO_OPTION);
+ if(pass == 0) 
+ {
+String s = (String)JOptionPane.showInputDialog(frame, "Choose method evaluation\n" +  "For the game:", "Evaluation Method",JOptionPane.PLAIN_MESSAGE, icon, possibilities, "s");
+ }
+
+
 	}
 	
 	public void bubbleSort(ArrayList<Card> numArray) {
@@ -329,5 +330,5 @@ String s = (String)JOptionPane.showInputDialog(frame,
 	
 
 
-
 }
+
