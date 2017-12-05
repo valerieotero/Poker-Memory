@@ -235,9 +235,12 @@ String s = (String)JOptionPane.showInputDialog(frame, "Choose method evaluation\
 		else {return false;}
 	}
 	
-	public boolean straight() 
-	{
 	
+	
+	
+	@Override
+	protected boolean  isGameOver(){
+
 		ArrayList<Card>  aToFive = new ArrayList<Card>();
 		ArrayList<Card>  twoToSix = new ArrayList<Card>();
 		ArrayList<Card>  threeToSeven = new ArrayList<Card>();
@@ -305,25 +308,11 @@ String s = (String)JOptionPane.showInputDialog(frame, "Choose method evaluation\
 		this.checkDuplicates(threeToSeven);
 		this.checkDuplicates(twoToSix);
 		this.checkDuplicates(aToFive);
-		if((aToFive.size() >= 5 || twoToSix.size() >= 5 || threeToSeven.size() >= 5 
-				|| fourToEight.size() >= 5 || fiveToNine.size() >= 5 || sixToTen.size() >= 5  || sevenToJ.size() >= 5 || eightToQ.size() >= 5 
-				|| nineToK.size() <= 5 || aToK.size() <= 5)) 
-		{
-			return true;
-		}
-		
-		else 
-		{
-			return false;
-		}
-	}
-	
-	@Override
-	protected boolean  isGameOver(){
-
 		
 		for (int i =0; i< this.getGrid().size();i++) {
-			if(!this.getGrid().get(i).isFaceUp() && (super.isGameOver() == false || this.redChecker() == true || this.straight() == true))
+			if(!this.getGrid().get(i).isFaceUp() && (super.isGameOver() == false || this.redChecker() == true || (aToFive.size() >= 5 || twoToSix.size() >= 5 || threeToSeven.size() >= 5 
+					|| fourToEight.size() >= 5 || fiveToNine.size() >= 5 || sixToTen.size() >= 5  || sevenToJ.size() >= 5 || eightToQ.size() >= 5 
+					|| nineToK.size() <= 5 || aToK.size() <= 5 || this.redChecker() == true)))
 			{
 				return false;
 			}
