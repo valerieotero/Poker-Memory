@@ -106,9 +106,9 @@ return false;
 			}
 		}
 		
-		public boolean straight() 
-		{
 		
+		@Override
+		protected boolean  isGameOver(){
 			ArrayList<Card>  aToFive = new ArrayList<Card>();
 			ArrayList<Card>  twoToSix = new ArrayList<Card>();
 			ArrayList<Card>  threeToSeven = new ArrayList<Card>();
@@ -176,28 +176,12 @@ return false;
 			this.checkDuplicates(threeToSeven);
 			this.checkDuplicates(twoToSix);
 			this.checkDuplicates(aToFive);
-			if((aToFive.size() >= 5 || twoToSix.size() >= 5 || threeToSeven.size() >= 5 
-					|| fourToEight.size() >= 5 || fiveToNine.size() >= 5 || sixToTen.size() >= 5  || sevenToJ.size() >= 5 || eightToQ.size() >= 5 
-					|| nineToK.size() <= 5 || aToK.size() <= 5)) 
-			{
-				return true;
-			}
-			
-			else 
-			{
-				return false;
-			}
-		}
-//		
-		@Override
-		protected boolean  isGameOver(){
-
 			
 			for (int i =0; i< this.getGrid().size();i++)
-				if(!this.getGrid().get(i).isFaceUp() && this.straight() == true)						
-				{
-					return false;
-				}
+				if(!this.getGrid().get(i).isFaceUp() && (aToFive.size() >= 5 || twoToSix.size() >= 5 || threeToSeven.size() >= 5 
+				|| fourToEight.size() >= 5 || fiveToNine.size() >= 5 || sixToTen.size() >= 5  || sevenToJ.size() >= 5 || eightToQ.size() >= 5 
+				|| nineToK.size() <= 5) || aToK.size() <= 5) //The new condition states that there a need for at least one array of suits of the
+				{return false;}
 			
 			this.scoreLabel = 0;
 			return true;
